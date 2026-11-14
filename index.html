@@ -1,688 +1,966 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kalanirvata Deduction Intelligence — Digital Deduction Ebook</title>
-<meta name="description" content="Digital Deduction — A Mindset Coach's Guide to Discernment Online. Master the art of clear thinking, pattern recognition, and wise judgment in the digital age." />
-<link rel="preconnect" href="https://cdn.jsdelivr.net" />
-<link href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.min.css" rel="stylesheet" />
-<link href="https://cdn.jsdelivr.net/npm/@fontsource/playfair-display@5.0.0/index.min.css" rel="stylesheet" />
+<title>Kalanirvata — Membantu UMKM & Pelajar Berbisnis dengan Mudah</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.0.0/index.css" />
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --bg: #0a0e1a;
-    --bg-2: #111827;
-    --accent: #c9a961;
-    --accent-2: #e8c987;
-    --purple: #7c3aed;
-    --blue: #3b82f6;
-    --text: #f3f4f6;
-    --muted: #9ca3af;
-    --card: rgba(255,255,255,0.04);
-    --border: rgba(255,255,255,0.08);
+  :root{
+    --primary:#000000;
+    --primary-active:#1a1a1a;
+    --text-link:#0d74ce;
+    --text-link-secondary:#476cff;
+    --ink:#171717;
+    --body:#60646c;
+    --body-strong:#171717;
+    --muted:#999999;
+    --muted-soft:#cccccc;
+    --hairline:#f0f0f3;
+    --hairline-soft:#f5f5f7;
+    --hairline-strong:#dcdee0;
+    --canvas:#ffffff;
+    --canvas-soft:#fafafa;
+    --surface-card:#ffffff;
+    --surface-strong:#f0f0f3;
+    --surface-dark:#171717;
+    --surface-dark-elevated:#1a1a1a;
+    --on-primary:#ffffff;
+    --on-dark:#ffffff;
+    --on-dark-soft:#b0b4ba;
+    --gradient-sky-light:#cfe7ff;
+    --gradient-sky-mid:#a8c8e8;
+    --accent-warning:#ab6400;
+    --accent-preview:#8145b5;
+    --semantic-success:#16a34a;
   }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',-apple-system,system-ui,sans-serif;
+    font-size:16px;font-weight:400;line-height:1.5;
+    color:var(--ink);background:var(--canvas);
+    -webkit-font-smoothing:antialiased;
   }
-  h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.02em; }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 18px 5%;
-    background: rgba(10,14,26,0.8);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    display: flex; justify-content: space-between; align-items: center;
+  /* ===== Top Nav ===== */
+  .top-nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:saturate(180%) blur(12px);
+    -webkit-backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--hairline);
+    height:64px;
   }
-  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.05rem; }
-  .logo-mark {
-    width: 34px; height: 34px; border-radius: 8px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    display: flex; align-items: center; justify-content: center;
-    color: #0a0e1a; font-weight: 900; font-family: 'Playfair Display', serif;
+  .nav-inner{
+    max-width:1200px;margin:0 auto;padding:0 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    height:100%;
   }
-  .logo span { color: var(--accent); }
-  .nav-cta {
-    background: var(--accent); color: #0a0e1a;
-    padding: 10px 22px; border-radius: 999px;
-    text-decoration: none; font-weight: 600; font-size: 0.9rem;
-    transition: all 0.3s;
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    font-weight:600;font-size:18px;letter-spacing:-0.3px;
+    color:var(--ink);
   }
-  .nav-cta:hover { background: var(--accent-2); transform: translateY(-2px); }
+  .brand-mark{
+    width:28px;height:28px;border-radius:8px;
+    background:var(--primary);
+    display:grid;place-items:center;
+    color:#fff;font-weight:700;font-size:13px;
+  }
+  .nav-menu{display:flex;gap:32px;align-items:center}
+  .nav-menu a{
+    font-size:14px;font-weight:500;color:var(--ink);
+    transition:color .2s;
+  }
+  .nav-menu a:hover{color:var(--muted)}
+  .nav-cta{display:flex;gap:8px;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    font-family:inherit;font-size:14px;font-weight:500;
+    height:40px;padding:10px 18px;border-radius:8px;
+    cursor:pointer;border:none;transition:all .2s;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--primary);color:var(--on-primary)}
+  .btn-primary:hover{background:var(--primary-active)}
+  .btn-secondary{background:var(--surface-card);color:var(--ink);border:1px solid var(--hairline-strong)}
+  .btn-secondary:hover{background:var(--canvas-soft)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:var(--hairline-soft)}
+  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+  .hamburger span{display:block;width:20px;height:2px;background:var(--ink);margin:4px 0;transition:.3s}
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    padding: 140px 5% 80px;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 60px; align-items: center;
-    position: relative;
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:96px 0 48px;
+    background:var(--canvas);
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
     background:
-      radial-gradient(circle at 20% 30%, rgba(124,58,237,0.15), transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(201,169,97,0.12), transparent 50%);
+      radial-gradient(ellipse 80% 60% at 50% 0%, var(--gradient-sky-light) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 50% 20%, var(--gradient-sky-mid) 0%, transparent 70%);
+    opacity:.85;pointer-events:none;z-index:0;
   }
-  .hero-text .badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 14px; border-radius: 999px;
-    background: rgba(201,169,97,0.12);
-    border: 1px solid rgba(201,169,97,0.3);
-    color: var(--accent); font-size: 0.8rem; font-weight: 600;
-    margin-bottom: 24px;
+  .hero-inner{position:relative;z-index:1;text-align:center;max-width:880px;margin:0 auto;padding:0 24px}
+  .badge-pill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--surface-strong);color:var(--ink);
+    font-size:11px;font-weight:600;letter-spacing:.88px;text-transform:uppercase;
+    padding:6px 12px;border-radius:9999px;margin-bottom:24px;
   }
-  .hero-text .badge::before { content: "●"; font-size: 0.6rem; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-  .hero h1 {
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    line-height: 1.1; margin-bottom: 20px;
+  .badge-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--semantic-success)}
+  .hero h1{
+    font-size:64px;font-weight:600;line-height:1.05;
+    letter-spacing:-1.92px;color:var(--ink);
+    margin-bottom:24px;
   }
-  .hero h1 .highlight {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
+  .hero h1 .accent{color:var(--text-link)}
+  .hero p.lead{
+    font-size:18px;line-height:1.55;color:var(--body);
+    max-width:620px;margin:0 auto 32px;
   }
-  .hero .subtitle {
-    font-size: 1.15rem; color: var(--muted);
-    margin-bottom: 32px; max-width: 540px;
+  .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .hero-trust{
+    margin-top:48px;display:flex;gap:32px;justify-content:center;
+    flex-wrap:wrap;color:var(--muted);font-size:13px;
   }
-  .cta-group { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
-  .btn-primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #0a0e1a; padding: 16px 32px; border-radius: 999px;
-    text-decoration: none; font-weight: 700; font-size: 1rem;
-    display: inline-flex; align-items: center; gap: 10px;
-    transition: all 0.3s; box-shadow: 0 10px 30px rgba(201,169,97,0.3);
-  }
-  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(201,169,97,0.45); }
-  .btn-secondary {
-    background: transparent; color: var(--text);
-    padding: 16px 28px; border-radius: 999px;
-    border: 1px solid var(--border);
-    text-decoration: none; font-weight: 600;
-    transition: all 0.3s;
-  }
-  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-  .trust-row { display: flex; gap: 24px; flex-wrap: wrap; color: var(--muted); font-size: 0.85rem; }
-  .trust-row div { display: flex; align-items: center; gap: 6px; }
-  .trust-row strong { color: var(--text); }
+  .hero-trust span{display:flex;align-items:center;gap:6px}
 
-  /* BOOK */
-  .book-wrap { display: flex; justify-content: center; align-items: center; perspective: 1500px; }
-  .book-3d {
-    position: relative; width: 320px; height: 440px;
-    transform-style: preserve-3d;
-    transform: rotateY(-25deg) rotateX(5deg);
-    transition: transform 0.6s;
-    animation: float 6s ease-in-out infinite;
+  /* Device Mockup */
+  .mockup-stage{
+    position:relative;z-index:1;
+    margin:64px auto 0;max-width:1000px;
+    padding:0 24px;
   }
-  .book-3d:hover { transform: rotateY(-15deg) rotateX(3deg); }
-  @keyframes float {
-    0%,100% { transform: rotateY(-25deg) rotateX(5deg) translateY(0); }
-    50% { transform: rotateY(-25deg) rotateX(5deg) translateY(-15px); }
+  .mockup-wrap{
+    position:relative;
+    background:linear-gradient(180deg,rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 100%);
+    padding:24px 24px 0;
   }
-  .book-cover, .book-back, .book-spine {
-    position: absolute; top: 0; width: 100%; height: 100%;
-    border-radius: 4px 12px 12px 4px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px rgba(124,58,237,0.2);
+  .macbook{
+    position:relative;
+    background:var(--surface-dark);
+    border-radius:16px 16px 4px 4px;
+    padding:14px 14px 0;
+    box-shadow:0 20px 60px rgba(0,0,0,.12), 0 4px 12px rgba(0,0,0,.06);
+    aspect-ratio:16/10;
+    overflow:hidden;
   }
-  .book-cover { transform: translateZ(20px); overflow: hidden; }
-  .book-back { transform: translateZ(-20px) rotateY(180deg); background: #0a0e1a; }
-  .book-spine {
-    width: 40px; left: -20px; transform: rotateY(-90deg) translateZ(0);
-    background: linear-gradient(180deg, #0a0e1a, #1a1f35);
-    transform-origin: right;
+  .macbook::after{
+    content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);
+    width:120px;height:10px;background:var(--surface-dark);
+    border-radius:0 0 10px 10px;
   }
-  .book-shadow {
-    position: absolute; bottom: -40px; left: 10%; right: 10%; height: 30px;
-    background: radial-gradient(ellipse, rgba(0,0,0,0.5), transparent 70%);
-    filter: blur(10px);
+  .mac-screen{
+    background:#0a0a0a;border-radius:6px 6px 0 0;
+    width:100%;height:100%;overflow:hidden;
+    display:grid;grid-template-columns:220px 1fr;
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:#d4d4d8;
+  }
+  .mac-sidebar{
+    background:#0f0f12;border-right:1px solid #1f1f24;
+    padding:16px 12px;
+  }
+  .mac-sidebar .logo-row{
+    display:flex;align-items:center;gap:8px;margin-bottom:20px;
+    font-size:12px;color:#fff;font-weight:600;
+  }
+  .mac-sidebar .logo-row .sq{width:18px;height:18px;border-radius:4px;background:var(--text-link)}
+  .mac-sidebar .nav-item{
+    padding:7px 10px;border-radius:6px;margin-bottom:2px;
+    color:#9ca3af;font-size:11px;display:flex;align-items:center;gap:8px;
+  }
+  .mac-sidebar .nav-item.active{background:#1a1a1f;color:#fff}
+  .mac-sidebar .nav-item .ico{width:14px;height:14px;border-radius:3px;background:#2a2a30}
+  .mac-sidebar .nav-item.active .ico{background:var(--text-link)}
+  .mac-main{padding:16px 20px;overflow:hidden}
+  .mac-topbar{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-bottom:16px;
+  }
+  .mac-topbar h3{font-family:'Inter',sans-serif;font-size:13px;color:#fff;font-weight:600}
+  .mac-topbar .search{
+    background:#1a1a1f;border:1px solid #2a2a30;border-radius:6px;
+    padding:5px 10px;font-size:10px;color:#9ca3af;width:180px;
+  }
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+  .stat-card{
+    background:#0f0f12;border:1px solid #1f1f24;border-radius:8px;padding:10px;
+  }
+  .stat-card .lbl{font-size:9px;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+  .stat-card .val{font-size:16px;color:#fff;font-weight:600;font-family:'Inter',sans-serif}
+  .stat-card .chg{font-size:9px;color:var(--semantic-success);margin-top:2px}
+  .chart-box{
+    background:#0f0f12;border:1px solid #1f1f24;border-radius:8px;padding:12px;
+    height:calc(100% - 140px);
+  }
+  .chart-box .ttl{font-size:10px;color:#9ca3af;margin-bottom:10px;display:flex;justify-content:space-between}
+  .chart-svg{width:100%;height:calc(100% - 20px)}
+
+  /* iPhone overlay */
+  .iphone{
+    position:absolute;right:-20px;bottom:-30px;
+    width:180px;height:360px;
+    background:var(--surface-dark);
+    border-radius:32px;
+    padding:10px;
+    box-shadow:0 30px 60px rgba(0,0,0,.25), 0 8px 20px rgba(0,0,0,.1);
+    border:1px solid #2a2a30;
+  }
+  .iphone-screen{
+    background:#0a0a0a;border-radius:22px;
+    width:100%;height:100%;overflow:hidden;
+    padding:14px 12px;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .iphone-notch{
+    width:80px;height:18px;background:#000;border-radius:0 0 12px 12px;
+    margin:-14px auto 0;
+  }
+  .iphone-header{
+    display:flex;justify-content:space-between;align-items:center;
+    color:#fff;font-family:'Inter',sans-serif;font-size:10px;font-weight:600;
+  }
+  .iphone-card{
+    background:#0f0f12;border:1px solid #1f1f24;border-radius:10px;padding:10px;
+  }
+  .iphone-card .t{font-size:9px;color:#9ca3af;margin-bottom:4px}
+  .iphone-card .v{font-size:14px;color:#fff;font-weight:600;font-family:'Inter',sans-serif}
+  .iphone-card .bar{
+    height:4px;background:#1f1f24;border-radius:2px;margin-top:8px;overflow:hidden;
+  }
+  .iphone-card .bar span{display:block;height:100%;background:var(--text-link);width:72%}
+  .iphone-list{display:flex;flex-direction:column;gap:6px}
+  .iphone-list .item{
+    display:flex;align-items:center;gap:8px;
+    background:#0f0f12;border:1px solid #1f1f24;border-radius:8px;padding:8px;
+  }
+  .iphone-list .ic{width:22px;height:22px;border-radius:6px;background:var(--text-link);flex-shrink:0}
+  .iphone-list .ic.b{background:#8145b5}
+  .iphone-list .ic.c{background:var(--accent-warning)}
+  .iphone-list .txt{font-size:9px;color:#fff;font-family:'Inter',sans-serif}
+  .iphone-list .txt small{display:block;color:#9ca3af;font-size:8px;margin-top:1px}
+
+  /* ===== Section base ===== */
+  section{padding:96px 0}
+  .section-head{text-align:center;max-width:720px;margin:0 auto 56px}
+  .section-label{
+    display:inline-block;font-size:11px;font-weight:600;
+    letter-spacing:.88px;text-transform:uppercase;color:var(--muted);
+    margin-bottom:16px;
+  }
+  .section-head h2{
+    font-size:48px;font-weight:600;line-height:1.1;
+    letter-spacing:-1.44px;color:var(--ink);margin-bottom:16px;
+  }
+  .section-head p{font-size:18px;color:var(--body);line-height:1.55}
+
+  /* ===== About ===== */
+  .about{background:var(--canvas)}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+  }
+  .about-text h2{
+    font-size:48px;font-weight:600;line-height:1.1;
+    letter-spacing:-1.44px;margin-bottom:20px;
+  }
+  .about-text p{color:var(--body);font-size:16px;margin-bottom:16px;line-height:1.6}
+  .about-text .link{color:var(--text-link);font-weight:500}
+  .about-visual{
+    background:var(--canvas-soft);border:1px solid var(--hairline);
+    border-radius:16px;padding:32px;
+    display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  }
+  .about-stat{
+    background:var(--surface-card);border:1px solid var(--hairline);
+    border-radius:12px;padding:20px;
+  }
+  .about-stat .num{
+    font-size:32px;font-weight:600;letter-spacing:-1px;color:var(--ink);
+    line-height:1;margin-bottom:6px;
+  }
+  .about-stat .lbl{font-size:13px;color:var(--body)}
+  .about-stat.dark{background:var(--surface-dark);border-color:var(--surface-dark)}
+  .about-stat.dark .num,.about-stat.dark .lbl{color:var(--on-dark)}
+  .about-stat.dark .lbl{color:var(--on-dark-soft)}
+
+  /* ===== Features ===== */
+  .features{background:var(--canvas-soft)}
+  .feature-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .feature-card{
+    background:var(--surface-card);
+    border:1px solid var(--hairline-strong);
+    border-radius:12px;padding:28px;
+    transition:all .25s;
+  }
+  .feature-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(0,0,0,.04);
+  }
+  .feature-icon{
+    width:40px;height:40px;border-radius:8px;
+    background:var(--surface-strong);
+    display:grid;place-items:center;margin-bottom:20px;
+  }
+  .feature-icon svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.8}
+  .feature-card h3{
+    font-size:18px;font-weight:600;line-height:1.4;
+    color:var(--ink);margin-bottom:10px;
+  }
+  .feature-card p{font-size:14px;color:var(--body);line-height:1.55}
+  .feature-card.dark{
+    background:var(--surface-dark);border-color:var(--surface-dark);
+  }
+  .feature-card.dark h3,.feature-card.dark p{color:var(--on-dark)}
+  .feature-card.dark p{color:var(--on-dark-soft)}
+  .feature-card.dark .feature-icon{background:var(--surface-dark-elevated)}
+  .feature-card.dark .feature-icon svg{stroke:var(--on-dark)}
+
+  /* ===== Workflow ===== */
+  .workflow{background:var(--canvas)}
+  .workflow-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  }
+  .step-card{
+    background:var(--surface-card);border:1px solid var(--hairline);
+    border-radius:12px;padding:24px;
+    position:relative;
+  }
+  .step-num{
+    position:absolute;top:20px;right:20px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+    color:var(--muted);
+  }
+  .step-icon{
+    width:36px;height:36px;border-radius:8px;
+    background:var(--surface-strong);
+    display:grid;place-items:center;margin-bottom:16px;
+  }
+  .step-icon svg{width:18px;height:18px;stroke:var(--ink);fill:none;stroke-width:1.8}
+  .step-card h4{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px}
+  .step-card p{font-size:14px;color:var(--body);line-height:1.5}
+
+  /* ===== Team ===== */
+  .team{background:var(--canvas-soft)}
+  .team-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  }
+  .member-card{
+    background:var(--surface-card);border:1px solid var(--hairline);
+    border-radius:12px;padding:24px;text-align:center;
+    transition:all .25s;
+  }
+  .member-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(0,0,0,.04);
+  }
+  .avatar{
+    width:96px;height:96px;border-radius:50%;
+    margin:0 auto 16px;
+    display:grid;place-items:center;
+    font-family:'Inter',sans-serif;font-weight:600;font-size:32px;
+    color:#fff;
+    position:relative;
+  }
+  .avatar::after{
+    content:'';position:absolute;inset:-4px;border-radius:50%;
+    border:1px solid var(--hairline);
+  }
+  .avatar.a1{background:linear-gradient(135deg,#171717,#3a3a3a)}
+  .avatar.a2{background:linear-gradient(135deg,#0d74ce,#47c2ff)}
+  .avatar.a3{background:linear-gradient(135deg,#8145b5,#b47dd6)}
+  .avatar.a4{background:linear-gradient(135deg,#ab6400,#e09a4a)}
+  .member-card h4{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:4px}
+  .member-card .role{
+    font-size:11px;font-weight:600;letter-spacing:.88px;
+    text-transform:uppercase;color:var(--muted);margin-bottom:12px;
+  }
+  .member-card p{font-size:13px;color:var(--body);line-height:1.5}
+
+  /* ===== Product ===== */
+  .product{background:var(--canvas)}
+  .product-card{
+    background:var(--surface-dark);border-radius:16px;
+    padding:56px;color:var(--on-dark);
+    display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;
+    position:relative;overflow:hidden;
+  }
+  .product-card::before{
+    content:'';position:absolute;top:-100px;right:-100px;
+    width:400px;height:400px;border-radius:50%;
+    background:radial-gradient(circle,rgba(13,116,206,.25) 0%,transparent 70%);
+  }
+  .product-card .label{
+    font-size:11px;font-weight:600;letter-spacing:.88px;
+    text-transform:uppercase;color:var(--on-dark-soft);margin-bottom:16px;
+  }
+  .product-card h2{
+    font-size:40px;font-weight:600;line-height:1.15;
+    letter-spacing:-1.2px;margin-bottom:16px;
+  }
+  .product-card p{
+    font-size:16px;color:var(--on-dark-soft);
+    line-height:1.6;margin-bottom:28px;
+  }
+  .product-card .btn-primary{background:#fff;color:var(--ink)}
+  .product-card .btn-primary:hover{background:var(--hairline-soft)}
+  .product-card .btn-secondary{background:transparent;color:var(--on-dark);border-color:rgba(255,255,255,.2)}
+  .product-card .btn-secondary:hover{background:rgba(255,255,255,.05)}
+  .product-cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .product-visual{
+    position:relative;z-index:1;
+    background:var(--surface-dark-elevated);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;padding:20px;
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+  }
+  .pv-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+  .pv-row:last-child{border-bottom:none}
+  .pv-row .k{color:var(--on-dark-soft)}
+  .pv-row .v{color:var(--on-dark);font-weight:500}
+  .pv-row .v.good{color:var(--semantic-success)}
+  .pv-head{
+    display:flex;align-items:center;gap:8px;margin-bottom:14px;
+    font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#fff;
+  }
+  .pv-head .dot{width:8px;height:8px;border-radius:50%;background:var(--semantic-success)}
+
+  /* ===== Contact ===== */
+  .contact{background:var(--canvas-soft)}
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  }
+  .contact-card{
+    background:var(--surface-card);border:1px solid var(--hairline);
+    border-radius:12px;padding:32px;
+    display:flex;gap:20px;align-items:flex-start;
+    transition:all .25s;
+  }
+  .contact-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(0,0,0,.04);
+  }
+  .contact-icon{
+    width:48px;height:48px;border-radius:10px;
+    background:var(--surface-strong);
+    display:grid;place-items:center;flex-shrink:0;
+  }
+  .contact-icon svg{width:22px;height:22px;fill:var(--ink)}
+  .contact-card h3{font-size:18px;font-weight:600;margin-bottom:6px}
+  .contact-card .val{
+    font-size:15px;color:var(--text-link);font-weight:500;
+    word-break:break-all;
+  }
+  .contact-card p{font-size:14px;color:var(--body);margin-top:6px;line-height:1.5}
+
+  /* ===== CTA Band ===== */
+  .cta-band{
+    background:var(--canvas);padding:96px 0;text-align:center;
+    border-top:1px solid var(--hairline);
+  }
+  .cta-band h2{
+    font-size:48px;font-weight:600;line-height:1.1;
+    letter-spacing:-1.44px;color:var(--ink);margin-bottom:16px;
+  }
+  .cta-band p{font-size:18px;color:var(--body);margin-bottom:32px;max-width:560px;margin-left:auto;margin-right:auto}
+
+  /* ===== Footer ===== */
+  .footer{
+    background:var(--canvas);border-top:1px solid var(--hairline);
+    padding:64px 0 32px;color:var(--body);
+  }
+  .footer-grid{
+    display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:48px;
+    margin-bottom:48px;
+  }
+  .footer-brand p{font-size:14px;line-height:1.55;margin-top:12px;max-width:280px}
+  .footer-col h5{
+    font-size:13px;font-weight:600;color:var(--ink);
+    margin-bottom:16px;letter-spacing:.2px;
+  }
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .footer-col a{font-size:14px;color:var(--body);transition:color .2s}
+  .footer-col a:hover{color:var(--ink)}
+  .footer-bottom{
+    padding-top:24px;border-top:1px solid var(--hairline);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+    font-size:13px;color:var(--muted);
+  }
+  .footer-bottom a{color:var(--text-link-secondary)}
+
+  /* ===== Responsive ===== */
+  @media (max-width:1024px){
+    .hero h1{font-size:48px;letter-spacing:-1.44px}
+    .section-head h2,.about-text h2,.cta-band h2{font-size:36px;letter-spacing:-1.08px}
+    .feature-grid,.team-grid{grid-template-columns:repeat(2,1fr)}
+    .workflow-grid{grid-template-columns:repeat(2,1fr)}
+    .about-grid,.product-card{grid-template-columns:1fr;gap:32px}
+    .product-card{padding:40px}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .mac-sidebar{display:none}
+    .mac-screen{grid-template-columns:1fr}
+  }
+  @media (max-width:768px){
+    .nav-menu{display:none}
+    .hamburger{display:block}
+    .hero{padding:64px 0 32px}
+    .hero h1{font-size:36px;letter-spacing:-1.08px}
+    .section-head h2,.about-text h2,.cta-band h2,.product-card h2{font-size:28px;letter-spacing:-.84px}
+    section{padding:64px 0}
+    .iphone{width:140px;height:280px;right:-10px;bottom:-20px}
+    .feature-grid,.team-grid,.workflow-grid,.contact-grid{grid-template-columns:1fr}
+    .footer-grid{grid-template-columns:1fr;gap:24px}
+    .product-card{padding:28px}
+    .about-visual{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:480px){
+    .hero h1{font-size:32px;letter-spacing:-.96px}
+    .about-visual{grid-template-columns:1fr}
+    .nav-cta .btn-secondary{display:none}
   }
 
-  /* SECTIONS */
-  section { padding: 100px 5%; position: relative; }
-  .section-head { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-  .section-head .eyebrow {
-    color: var(--accent); font-size: 0.85rem; font-weight: 700;
-    letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 14px;
-  }
-  .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 16px; }
-  .section-head p { color: var(--muted); font-size: 1.05rem; }
-
-  /* FEATURES */
-  .features-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px; max-width: 1200px; margin: 0 auto;
-  }
-  .feature {
-    background: var(--card); border: 1px solid var(--border);
-    padding: 32px; border-radius: 16px;
-    transition: all 0.3s;
-  }
-  .feature:hover { border-color: var(--accent); transform: translateY(-5px); }
-  .feature-icon {
-    width: 52px; height: 52px; border-radius: 12px;
-    background: linear-gradient(135deg, rgba(201,169,97,0.2), rgba(124,58,237,0.2));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; margin-bottom: 20px;
-  }
-  .feature h3 { font-size: 1.25rem; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
-  .feature p { color: var(--muted); font-size: 0.95rem; }
-
-  /* WHAT'S INSIDE */
-  .inside { background: var(--bg-2); }
-  .inside-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 60px; max-width: 1100px; margin: 0 auto; align-items: center;
-  }
-  .chapter-list { list-style: none; }
-  .chapter-list li {
-    padding: 18px 0; border-bottom: 1px solid var(--border);
-    display: flex; align-items: flex-start; gap: 16px;
-  }
-  .chapter-num {
-    flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #0a0e1a; font-weight: 700; font-size: 0.85rem;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .chapter-list h4 { font-family: 'Inter', sans-serif; font-size: 1.05rem; margin-bottom: 4px; }
-  .chapter-list p { color: var(--muted); font-size: 0.9rem; }
-
-  /* AUDIENCE */
-  .audience-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px; max-width: 1100px; margin: 0 auto;
-  }
-  .audience-card {
-    background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(201,169,97,0.05));
-    border: 1px solid var(--border);
-    padding: 28px; border-radius: 16px;
-    text-align: center;
-  }
-  .audience-card .emoji { font-size: 2.2rem; margin-bottom: 14px; }
-  .audience-card h4 { font-family: 'Inter', sans-serif; font-size: 1.05rem; margin-bottom: 8px; }
-  .audience-card p { color: var(--muted); font-size: 0.9rem; }
-
-  /* TESTIMONIALS */
-  .testimonials { background: var(--bg-2); }
-  .test-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px; max-width: 1100px; margin: 0 auto;
-  }
-  .test-card {
-    background: var(--card); border: 1px solid var(--border);
-    padding: 28px; border-radius: 16px;
-  }
-  .stars { color: var(--accent); margin-bottom: 14px; letter-spacing: 2px; }
-  .test-card blockquote { font-style: italic; margin-bottom: 18px; color: #e5e7eb; }
-  .test-author { display: flex; align-items: center; gap: 12px; }
-  .avatar {
-    width: 42px; height: 42px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--purple), var(--accent));
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; color: white;
-  }
-  .test-author strong { display: block; font-size: 0.95rem; }
-  .test-author span { color: var(--muted); font-size: 0.8rem; }
-
-  /* PRICING / FINAL CTA */
-  .final-cta {
-    text-align: center;
-    background:
-      radial-gradient(circle at 50% 50%, rgba(201,169,97,0.15), transparent 60%);
-  }
-  .price-box {
-    max-width: 500px; margin: 0 auto;
-    background: linear-gradient(135deg, rgba(201,169,97,0.1), rgba(124,58,237,0.08));
-    border: 1px solid rgba(201,169,97,0.3);
-    padding: 40px; border-radius: 24px;
-  }
-  .price-box .old { color: var(--muted); text-decoration: line-through; font-size: 1.1rem; }
-  .price-box .new {
-    font-size: 3rem; font-weight: 800;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    margin: 8px 0;
-  }
-  .price-box .note { color: var(--muted); margin-bottom: 24px; font-size: 0.9rem; }
-  .guarantee {
-    margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);
-    color: var(--muted); font-size: 0.85rem;
-  }
-  .guarantee strong { color: var(--accent); }
-
-  /* FAQ */
-  .faq-wrap { max-width: 780px; margin: 0 auto; }
-  .faq-item {
-    border-bottom: 1px solid var(--border);
-    padding: 20px 0; cursor: pointer;
-  }
-  .faq-q {
-    display: flex; justify-content: space-between; align-items: center;
-    font-weight: 600; font-size: 1.05rem;
-  }
-  .faq-q::after { content: "+"; font-size: 1.5rem; color: var(--accent); transition: transform 0.3s; }
-  .faq-item.open .faq-q::after { transform: rotate(45deg); }
-  .faq-a {
-    max-height: 0; overflow: hidden; transition: max-height 0.4s, margin 0.3s;
-    color: var(--muted);
-  }
-  .faq-item.open .faq-a { max-height: 300px; margin-top: 14px; }
-
-  /* FOOTER */
-  footer {
-    padding: 50px 5% 30px; border-top: 1px solid var(--border);
-    text-align: center; color: var(--muted); font-size: 0.85rem;
-  }
-  footer .logo { justify-content: center; margin-bottom: 16px; }
-  footer a { color: var(--accent); text-decoration: none; }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; padding-top: 110px; text-align: center; }
-    .hero-text .badge, .cta-group, .trust-row { justify-content: center; }
-    .cta-group { justify-content: center; }
-    .trust-row { justify-content: center; }
-    .hero .subtitle { margin-left: auto; margin-right: auto; }
-    .inside-grid { grid-template-columns: 1fr; }
-    .book-3d { width: 260px; height: 360px; }
-  }
-  @media (max-width: 500px) {
-    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-    .nav-cta { padding: 8px 16px; font-size: 0.8rem; }
-  }
+  /* Fade-in animation */
+  .reveal{opacity:0;transform:translateY(20px);transition:all .6s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
 </style>
- <script>!function(w,d,s,u,n,a,b){if(w[n])return;a=w[n]={q:[],t:+new Date,s:[],o:u,track:function(){a.q.push([+new Date].concat([].slice.call(arguments)))},setScope:function(){a.s=[].slice.call(arguments).filter(function(x){return typeof x==="string"});a.q.push([+new Date,"setScope"].concat(a.s))},scope:function(){var c=[].slice.call(arguments);return{track:function(){a.q.push([+new Date].concat([].slice.call(arguments)).concat([{__scope:c}]))}}}};b=d.createElement(s);b.async=1;b.src=u+"/s.js";d.getElementsByTagName(s)[0].parentNode.insertBefore(b,d.getElementsByTagName(s)[0])}(window,document,"script","https://t.whop.tw","whop");whop.setScope("biz_QNyfRh0t4I6KqR");whop.track("page");</script>
 </head>
 <body>
 
-<nav>
-  <div class="logo">
-    <div class="logo-mark">K</div>
-    <div>Kalanirvata <span>Deduction Intelligence</span></div>
+<!-- ===== Top Nav ===== -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <span class="brand-mark">K</span>
+      Kalanirvata
+    </a>
+    <div class="nav-menu">
+      <a href="#about">Tentang</a>
+      <a href="#features">Layanan</a>
+      <a href="#workflow">Cara Kerja</a>
+      <a href="#team">Tim</a>
+      <a href="#product">Produk</a>
+      <a href="#contact">Kontak</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-secondary">Hubungi</a>
+      <a href="#product" class="btn btn-primary">Mulai Sekarang</a>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
   </div>
-  <a href="https://whop.com/kalanirvata-deduction-intelligence/digital-deduction-bundle-8d/" class="nav-cta" target="_blank" rel="noopener">Get the Book</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
-    <div class="badge">New Release · For Mindset Coaches</div>
-    <h1>Think <span class="highlight">Clearly.</span><br/>Decide <span class="highlight">Wisely.</span><br/>Coach <span class="highlight">Powerfully.</span></h1>
-    <p class="subtitle"><strong>Digital Deduction</strong> — A Mindset Coach's Guide to Discernment Online. Master the art of seeing through digital noise, spotting hidden patterns, and guiding others toward truth in an age of distraction.</p>
-    <div class="cta-group">
-      <a href="https://whop.com/kalanirvata-deduction-intelligence/digital-deduction-bundle-8d/" class="btn-primary" target="_blank" rel="noopener">
-        Get Instant Access →
+<!-- ===== Hero ===== -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="badge-pill"><span class="dot"></span>Membangun UMKM & Pelajar Berbisnis</div>
+    <h1>Wujudkan bisnis impianmu <span class="accent">tanpa ribet.</span></h1>
+    <p class="lead">Kalanirvata membantu pelaku UMKM, siswa, dan mahasiswa membangun bisnis dari nol — dengan teknologi, strategi, dan pendampingan yang tepat.</p>
+    <div class="hero-cta">
+      <a href="#product" class="btn btn-primary">Lihat Produk Kami →</a>
+      <a href="#about" class="btn btn-secondary">Pelajari Lebih Lanjut</a>
+    </div>
+    <div class="hero-trust">
+      <span>✓ Konsultasi Gratis</span>
+      <span>✓ Teknologi Modern</span>
+      <span>✓ Pendampingan End-to-End</span>
+    </div>
+  </div>
+
+  <!-- Device Mockup -->
+  <div class="mockup-stage">
+    <div class="mockup-wrap">
+      <div class="macbook">
+        <div class="mac-screen">
+          <aside class="mac-sidebar">
+            <div class="logo-row"><span class="sq"></span> Kalanirvata</div>
+            <div class="nav-item active"><span class="ico"></span> Dashboard</div>
+            <div class="nav-item"><span class="ico"></span> Produk</div>
+            <div class="nav-item"><span class="ico"></span> Transaksi</div>
+            <div class="nav-item"><span class="ico"></span> Pelanggan</div>
+            <div class="nav-item"><span class="ico"></span> Analitik</div>
+            <div class="nav-item"><span class="ico"></span> AI Assistant</div>
+            <div class="nav-item"><span class="ico"></span> Pengaturan</div>
+          </aside>
+          <main class="mac-main">
+            <div class="mac-topbar">
+              <h3>Dashboard Bisnis</h3>
+              <div class="search">⌘ Cari transaksi, produk...</div>
+            </div>
+            <div class="stats-row">
+              <div class="stat-card">
+                <div class="lbl">Pendapatan</div>
+                <div class="val">Rp 24,8jt</div>
+                <div class="chg">▲ 12,4%</div>
+              </div>
+              <div class="stat-card">
+                <div class="lbl">Pelanggan</div>
+                <div class="val">1.284</div>
+                <div class="chg">▲ 8,2%</div>
+              </div>
+              <div class="stat-card">
+                <div class="lbl">Produk Aktif</div>
+                <div class="val">47</div>
+                <div class="chg">▲ 3 baru</div>
+              </div>
+            </div>
+            <div class="chart-box">
+              <div class="ttl"><span>Performa Penjualan 30 Hari</span><span style="color:var(--semantic-success)">+18%</span></div>
+              <svg class="chart-svg" viewBox="0 0 400 120" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="chartGrad" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#0d74ce" stop-opacity=".4"/>
+                    <stop offset="100%" stop-color="#0d74ce" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0,90 L30,75 L60,80 L90,60 L120,65 L150,45 L180,55 L210,35 L240,40 L270,25 L300,30 L330,15 L360,20 L400,10 L400,120 L0,120 Z" fill="url(#chartGrad)"/>
+                <path d="M0,90 L30,75 L60,80 L90,60 L120,65 L150,45 L180,55 L210,35 L240,40 L270,25 L300,30 L330,15 L360,20 L400,10" fill="none" stroke="#0d74ce" stroke-width="2"/>
+              </svg>
+            </div>
+          </main>
+        </div>
+      </div>
+      <div class="iphone">
+        <div class="iphone-screen">
+          <div class="iphone-notch"></div>
+          <div class="iphone-header"><span>09:41</span><span>●●●</span></div>
+          <div class="iphone-card">
+            <div class="t">Penjualan Hari Ini</div>
+            <div class="v">Rp 1,24jt</div>
+            <div class="bar"><span></span></div>
+          </div>
+          <div class="iphone-list">
+            <div class="item"><div class="ic"></div><div class="txt">Pesanan baru<small>2 menit lalu</small></div></div>
+            <div class="item"><div class="ic b"></div><div class="txt">AI rekomendasi<small>Strategi harga</small></div></div>
+            <div class="item"><div class="ic c"></div><div class="txt">Stok hampir habis<small>3 produk</small></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== About ===== -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="section-label">Tentang Kami</span>
+        <h2>Partner terpercaya untuk UMKM & pelajar yang ingin berbisnis.</h2>
+        <p>Kalanirvata lahir dari keyakinan bahwa setiap orang — baik pelaku UMKM maupun pelajar — berhak memiliki akses yang mudah ke dunia bisnis. Kami menyediakan solusi teknologi, edukasi, dan pendampingan yang praktis.</p>
+        <p>Dari membangun toko online, mengelola keuangan, hingga memanfaatkan AI untuk strategi pemasaran — kami siap menemani setiap langkah perjalanan bisnismu. <a href="#product" class="link">Lihat produk kami →</a></p>
+      </div>
+      <div class="about-visual reveal">
+        <div class="about-stat">
+          <div class="num">500+</div>
+          <div class="lbl">UMKM Dibantu</div>
+        </div>
+        <div class="about-stat dark">
+          <div class="num">1.2K</div>
+          <div class="lbl">Siswa & Mahasiswa</div>
+        </div>
+        <div class="about-stat dark">
+          <div class="num">24/7</div>
+          <div class="lbl">Pendampingan</div>
+        </div>
+        <div class="about-stat">
+          <div class="num">98%</div>
+          <div class="lbl">Tingkat Kepuasan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Features ===== -->
+<section id="features" class="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Layanan Kami</span>
+      <h2>Solusi lengkap untuk bisnismu.</h2>
+      <p>Dari ide pertama hingga skala besar, Kalanirvata menyediakan semua yang kamu butuhkan untuk memulai dan mengembangkan bisnis.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z M3 9h18 M9 21V9"/></svg>
+        </div>
+        <h3>Setup Toko Online</h3>
+        <p>Bangun toko online profesional dalam hitungan menit. Terintegrasi dengan marketplace dan payment gateway populer.</p>
+      </div>
+      <div class="feature-card dark reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6m11-11h-6M7 12H1m15.5-7.5L14 7m-4 10l-2.5 2.5M19.5 19.5L17 17M7 7L4.5 4.5"/></svg>
+        </div>
+        <h3>AI Business Assistant</h3>
+        <p>Asisten AI yang membantu analisis pasar, rekomendasi produk, dan strategi pemasaran secara otomatis.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3>Manajemen Keuangan</h3>
+        <p>Kelola arus kas, laporan laba rugi, dan pajak dengan mudah. Dirancang khusus untuk UMKM dan pemula.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2 M9 11a4 4 0 100-8 4 4 0 000 8z M23 21v-2a4 4 0 00-3-3.87 M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Mentoring Bisnis</h3>
+        <p>Sesi mentoring 1-on-1 dengan praktisi bisnis berpengalaman. Cocok untuk pelajar yang baru mulai.</p>
+      </div>
+      <div class="feature-card dark reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3v18h18 M7 14l4-4 4 4 6-6"/></svg>
+        </div>
+        <h3>Analitik & Laporan</h3>
+        <p>Pantau performa bisnis dengan dashboard real-time. Ambil keputusan berbasis data, bukan asumsi.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3>Komunitas & Support</h3>
+        <p>Bergabung dengan komunitas pelaku bisnis. Diskusi, berbagi pengalaman, dan saling mendukung.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Workflow ===== -->
+<section id="workflow" class="workflow">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Cara Kerja</span>
+      <h2>Mulai bisnismu dalam 4 langkah.</h2>
+      <p>Proses sederhana yang dirancang agar kamu bisa fokus pada bisnis, bukan kerumitan teknis.</p>
+    </div>
+    <div class="workflow-grid">
+      <div class="step-card reveal">
+        <span class="step-num">01</span>
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h4>Konsultasi</h4>
+        <p>Diskusikan ide bisnismu dengan tim kami secara gratis.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="step-num">02</span>
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9 M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4z"/></svg></div>
+        <h4>Perencanaan</h4>
+        <p>Kami bantu susun strategi dan rencana bisnis yang realistis.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="step-num">03</span>
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6 M8 6l-6 6 6 6"/></svg></div>
+        <h4>Eksekusi</h4>
+        <p>Bangun infrastrukturnya dengan tools dan teknologi kami.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="step-num">04</span>
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14 M22 4L12 14.01l-3-3"/></svg></div>
+        <h4>Scale Up</h4>
+        <p>Kembangkan bisnismu dengan pendampingan berkelanjutan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Team ===== -->
+<section id="team" class="team">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Tim Kami</span>
+      <h2>Orang-orang di balik Kalanirvata.</h2>
+      <p>Tim kecil dengan visi besar — membantu ribuan UMKM dan pelajar Indonesia berbisnis dengan lebih mudah.</p>
+    </div>
+    <div class="team-grid">
+      <div class="member-card reveal">
+        <div class="avatar a1">LP</div>
+        <h4>Lutfi Ahmad Paradiansyah</h4>
+        <div class="role">Chief Executive Officer</div>
+        <p>Memimpin visi dan strategi Kalanirvata untuk memberdayakan UMKM dan pelajar Indonesia.</p>
+      </div>
+      <div class="member-card reveal">
+        <div class="avatar a2">T</div>
+        <h4>Togow</h4>
+        <div class="role">Marketer</div>
+        <p>Merancang strategi pemasaran yang menjangkau pelaku UMKM dan pelajar di seluruh Indonesia.</p>
+      </div>
+      <div class="member-card reveal">
+        <div class="avatar a3">D</div>
+        <h4>Daffa</h4>
+        <div class="role">AI Engineer</div>
+        <p>Membangun asisten AI cerdas yang membantu analisis bisnis dan pengambilan keputusan.</p>
+      </div>
+      <div class="member-card reveal">
+        <div class="avatar a4">AR</div>
+        <h4>Ananda Rauf</h4>
+        <div class="role">Fullstack Developer</div>
+        <p>Mengembangkan platform dan produk digital yang andal untuk kebutuhan bisnis pengguna.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Product ===== -->
+<section id="product" class="product">
+  <div class="container">
+    <div class="product-card reveal">
+      <div>
+        <div class="label">Produk Kami</div>
+        <h2>Lutvora — Platform bisnis all-in-one.</h2>
+        <p>Solusi lengkap untuk mengelola toko, pelanggan, keuangan, dan pemasaran dalam satu dashboard. Dibangun khusus untuk UMKM dan pelajar yang serius berbisnis.</p>
+        <div class="product-cta-row">
+          <a href="https://lutvoraapp.web.id" target="_blank" rel="noopener" class="btn btn-primary">Kunjungi Lutvora →</a>
+          <a href="#contact" class="btn btn-secondary">Demo Gratis</a>
+        </div>
+      </div>
+      <div class="product-visual">
+        <div class="pv-head"><span class="dot"></span> Live Status — Lutvora</div>
+        <div class="pv-row"><span class="k">uptime</span><span class="v good">99.98%</span></div>
+        <div class="pv-row"><span class="k">active_merchants</span><span class="v">1,284</span></div>
+        <div class="pv-row"><span class="k">transactions_today</span><span class="v">8,420</span></div>
+        <div class="pv-row"><span class="k">ai_assistant</span><span class="v good">online</span></div>
+        <div class="pv-row"><span class="k">avg_response</span><span class="v">124ms</span></div>
+        <div class="pv-row"><span class="k">region</span><span class="v">ap-southeast-3</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-label">Kontak</span>
+      <h2>Mari berdiskusi tentang bisnismu.</h2>
+      <p>Hubungi kami melalui WhatsApp atau email. Tim kami siap membantu kamu memulai perjalanan bisnis.</p>
+    </div>
+    <div class="contact-grid">
+      <a href="https://wa.me/6285817023482" target="_blank" rel="noopener" class="contact-card reveal">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div>
+          <h3>WhatsApp</h3>
+          <div class="val">0858-1702-3482</div>
+          <p>Chat langsung dengan tim kami. Respons cepat di jam kerja.</p>
+        </div>
       </a>
-      <a href="#inside" class="btn-secondary">See What's Inside</a>
-    </div>
-    <div class="trust-row">
-      <div>⭐⭐⭐⭐⭐ <strong>4.9/5</strong> Rating</div>
-      <div>📖 <strong>Instant</strong> PDF Download</div>
-      <div>🔒 <strong>Secure</strong> Checkout</div>
+      <a href="mailto:kalanirvata@gmail.com" class="contact-card reveal">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div>
+          <h3>Email</h3>
+          <div class="val">kalanirvata@gmail.com</div>
+          <p>Kirim proposal, pertanyaan, atau penawaran kerjasama.</p>
+        </div>
+      </a>
     </div>
   </div>
+</section>
 
-  <div class="book-wrap">
-    <div class="book-3d">
-      <div class="book-cover">
-        <!-- SVG Book Cover -->
-        <svg viewBox="0 0 320 440" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-          <defs>
-            <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#0a0e1a"/>
-              <stop offset="50%" stop-color="#1a1f3a"/>
-              <stop offset="100%" stop-color="#0f0a2a"/>
-            </linearGradient>
-            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#c9a961"/>
-              <stop offset="100%" stop-color="#e8c987"/>
-            </linearGradient>
-            <radialGradient id="glow" cx="50%" cy="40%" r="50%">
-              <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.4"/>
-              <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <rect width="320" height="440" fill="url(#bgGrad)"/>
-          <rect width="320" height="440" fill="url(#glow)"/>
-          <!-- Neural network pattern -->
-          <g stroke="#c9a961" stroke-opacity="0.25" stroke-width="0.8" fill="none">
-            <line x1="40" y1="80" x2="120" y2="140"/>
-            <line x1="120" y1="140" x2="200" y2="100"/>
-            <line x1="200" y1="100" x2="280" y2="160"/>
-            <line x1="120" y1="140" x2="160" y2="220"/>
-            <line x1="200" y1="100" x2="240" y2="200"/>
-            <line x1="160" y1="220" x2="240" y2="200"/>
-            <line x1="40" y1="80" x2="80" y2="200"/>
-            <line x1="80" y1="200" x2="160" y2="220"/>
-          </g>
-          <g fill="#c9a961" fill-opacity="0.7">
-            <circle cx="40" cy="80" r="3"/>
-            <circle cx="120" cy="140" r="4"/>
-            <circle cx="200" cy="100" r="3"/>
-            <circle cx="280" cy="160" r="3"/>
-            <circle cx="160" cy="220" r="4"/>
-            <circle cx="240" cy="200" r="3"/>
-            <circle cx="80" cy="200" r="3"/>
-          </g>
-          <!-- Top brand -->
-          <text x="160" y="50" text-anchor="middle" fill="#c9a961" font-family="Inter, sans-serif" font-size="9" letter-spacing="4" font-weight="600">KALANIRVATA</text>
-          <text x="160" y="65" text-anchor="middle" fill="#9ca3af" font-family="Inter, sans-serif" font-size="7" letter-spacing="3">DEDUCTION INTELLIGENCE</text>
-          <!-- Main title -->
-          <text x="160" y="280" text-anchor="middle" fill="url(#goldGrad)" font-family="Playfair Display, serif" font-size="34" font-weight="700">Digital</text>
-          <text x="160" y="318" text-anchor="middle" fill="url(#goldGrad)" font-family="Playfair Display, serif" font-size="34" font-weight="700">Deduction</text>
-          <!-- Divider -->
-          <line x1="110" y1="340" x2="210" y2="340" stroke="#c9a961" stroke-width="1"/>
-          <!-- Subtitle -->
-          <text x="160" y="365" text-anchor="middle" fill="#e5e7eb" font-family="Inter, sans-serif" font-size="10" font-weight="500">A Mindset Coach's Guide</text>
-          <text x="160" y="382" text-anchor="middle" fill="#e5e7eb" font-family="Inter, sans-serif" font-size="10" font-weight="500">to Discernment Online</text>
-          <!-- Bottom ornament -->
-          <text x="160" y="420" text-anchor="middle" fill="#c9a961" font-family="Inter, sans-serif" font-size="8" letter-spacing="6">◆ ◆ ◆</text>
-        </svg>
+<!-- ===== CTA Band ===== -->
+<section class="cta-band">
+  <div class="container reveal">
+    <h2>Siap memulai bisnismu?</h2>
+    <p>Bergabunglah dengan ratusan UMKM dan pelajar yang telah mempercayakan perjalanan bisnis mereka kepada Kalanirvata.</p>
+    <div class="hero-cta">
+      <a href="https://wa.me/6285817023482" target="_blank" rel="noopener" class="btn btn-primary">Hubungi via WhatsApp</a>
+      <a href="https://lutvoraapp.web.id" target="_blank" rel="noopener" class="btn btn-secondary">Coba Lutvora</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="brand"><span class="brand-mark">K</span> Kalanirvata</a>
+        <p>Membantu UMKM, siswa, dan mahasiswa membangun bisnis dengan mudah melalui teknologi dan pendampingan.</p>
       </div>
-      <div class="book-spine"></div>
-      <div class="book-back"></div>
-      <div class="book-shadow"></div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section>
-  <div class="section-head">
-    <div class="eyebrow">Why This Book</div>
-    <h2>Clarity Is the New Superpower</h2>
-    <p>In a world of infinite information, the most valuable skill isn't knowing more — it's seeing what's true.</p>
-  </div>
-  <div class="features-grid">
-    <div class="feature">
-      <div class="feature-icon">🧠</div>
-      <h3>Deductive Thinking Frameworks</h3>
-      <p>Proven mental models to cut through noise, identify patterns, and reach sound conclusions faster.</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🎯</div>
-      <h3>Online Discernment Tools</h3>
-      <p>Practical techniques for evaluating information, influencers, and ideas in the digital landscape.</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">💡</div>
-      <h3>Coaching-Ready Methods</h3>
-      <p>Turn insights into client transformations with structured exercises, prompts, and session frameworks.</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🛡️</div>
-      <h3>Mindset Protection</h3>
-      <p>Build cognitive resilience against manipulation, hype cycles, and digital overwhelm.</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">⚡</div>
-      <h3>Decision Architecture</h3>
-      <p>Design decision systems that reduce bias and amplify wisdom in high-stakes moments.</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🌐</div>
-      <h3>Truth-First Coaching</h3>
-      <p>Lead clients from confusion to clarity with a methodology rooted in discernment, not dogma.</p>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT'S INSIDE -->
-<section class="inside" id="inside">
-  <div class="section-head">
-    <div class="eyebrow">Inside the Book</div>
-    <h2>What You'll Master</h2>
-    <p>A complete roadmap from digital confusion to decisive clarity.</p>
-  </div>
-  <div class="inside-grid">
-    <ul class="chapter-list">
-      <li>
-        <div class="chapter-num">01</div>
-        <div>
-          <h4>The Deduction Mindset</h4>
-          <p>Rebuild how you process information from the ground up.</p>
-        </div>
-      </li>
-      <li>
-        <div class="chapter-num">02</div>
-        <div>
-          <h4>Signal vs. Noise</h4>
-          <p>Separate meaningful data from digital distraction.</p>
-        </div>
-      </li>
-      <li>
-        <div class="chapter-num">03</div>
-        <div>
-          <h4>The Coach's Lens</h4>
-          <p>Apply discernment frameworks directly to client work.</p>
-        </div>
-      </li>
-      <li>
-        <div class="chapter-num">04</div>
-        <div>
-          <h4>Pattern Recognition Online</h4>
-          <p>Spot recurring traps, trends, and truths in digital spaces.</p>
-        </div>
-      </li>
-      <li>
-        <div class="chapter-num">05</div>
-        <div>
-          <h4>Wise Decision Systems</h4>
-          <p>Build repeatable processes for high-quality choices.</p>
-        </div>
-      </li>
-      <li>
-        <div class="chapter-num">06</div>
-        <div>
-          <h4>Discernment in Action</h4>
-          <p>Real-world case studies and coaching exercises.</p>
-        </div>
-      </li>
-    </ul>
-    <div class="book-wrap">
-      <div class="book-3d" style="animation-delay: -3s;">
-        <div class="book-cover">
-          <svg viewBox="0 0 320 440" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-            <defs>
-              <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#0a0e1a"/>
-                <stop offset="100%" stop-color="#1a0f2a"/>
-              </linearGradient>
-              <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#c9a961"/>
-                <stop offset="100%" stop-color="#e8c987"/>
-              </linearGradient>
-            </defs>
-            <rect width="320" height="440" fill="url(#bgGrad2)"/>
-            <g stroke="#c9a961" stroke-opacity="0.3" stroke-width="0.5" fill="none">
-              <circle cx="160" cy="220" r="60"/>
-              <circle cx="160" cy="220" r="90"/>
-              <circle cx="160" cy="220" r="120"/>
-              <line x1="40" y1="220" x2="280" y2="220"/>
-              <line x1="160" y1="100" x2="160" y2="340"/>
-            </g>
-            <text x="160" y="50" text-anchor="middle" fill="#c9a961" font-family="Inter, sans-serif" font-size="9" letter-spacing="4" font-weight="600">KALANIRVATA</text>
-            <text x="160" y="220" text-anchor="middle" fill="url(#goldGrad2)" font-family="Playfair Display, serif" font-size="30" font-weight="700">Digital</text>
-            <text x="160" y="255" text-anchor="middle" fill="url(#goldGrad2)" font-family="Playfair Display, serif" font-size="30" font-weight="700">Deduction</text>
-            <text x="160" y="390" text-anchor="middle" fill="#9ca3af" font-family="Inter, sans-serif" font-size="9" letter-spacing="3">A MINDSET COACH'S GUIDE</text>
-          </svg>
-        </div>
-        <div class="book-spine"></div>
-        <div class="book-back"></div>
-        <div class="book-shadow"></div>
+      <div class="footer-col">
+        <h5>Perusahaan</h5>
+        <ul>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#team">Tim</a></li>
+          <li><a href="#contact">Kontak</a></li>
+          <li><a href="#">Karir</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Layanan</h5>
+        <ul>
+          <li><a href="#features">Setup Toko</a></li>
+          <li><a href="#features">AI Assistant</a></li>
+          <li><a href="#features">Mentoring</a></li>
+          <li><a href="#features">Analitik</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Produk</h5>
+        <ul>
+          <li><a href="https://lutvoraapp.web.id" target="_blank" rel="noopener">Lutvora</a></li>
+          <li><a href="#product">Dashboard</a></li>
+          <li><a href="#product">Mobile App</a></li>
+          <li><a href="#product">API Docs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Kontak</h5>
+        <ul>
+          <li><a href="https://wa.me/6285817023482" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:kalanirvata@gmail.com">Email</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- AUDIENCE -->
-<section>
-  <div class="section-head">
-    <div class="eyebrow">Who It's For</div>
-    <h2>Built For Those Who Guide Others</h2>
-    <p>If you help people think better, this book will sharpen your edge.</p>
-  </div>
-  <div class="audience-grid">
-    <div class="audience-card">
-      <div class="emoji">🎓</div>
-      <h4>Mindset Coaches</h4>
-      <p>Sharpen your frameworks and deliver deeper transformations.</p>
-    </div>
-    <div class="audience-card">
-      <div class="emoji">🧭</div>
-      <h4>Life Strategists</h4>
-      <p>Guide clients through complex decisions with clarity.</p>
-    </div>
-    <div class="audience-card">
-      <div class="emoji">💼</div>
-      <h4>Online Entrepreneurs</h4>
-      <p>Navigate the digital economy with discernment, not hype.</p>
-    </div>
-    <div class="audience-card">
-      <div class="emoji">📚</div>
-      <h4>Thought Leaders</h4>
-      <p>Build authority rooted in truth and sharp thinking.</p>
+    <div class="footer-bottom">
+      <div>© 2026 Kalanirvata. All rights reserved.</div>
+      <div>Produk unggulan: <a href="https://lutvoraapp.web.id" target="_blank" rel="noopener">lutvoraapp.web.id</a></div>
     </div>
   </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="section-head">
-    <div class="eyebrow">Reader Feedback</div>
-    <h2>What Coaches Are Saying</h2>
-  </div>
-  <div class="test-grid">
-    <div class="test-card">
-      <div class="stars">★★★★★</div>
-      <blockquote>"This book completely changed how I approach client sessions. The deduction frameworks are gold."</blockquote>
-      <div class="test-author">
-        <div class="avatar">M</div>
-        <div>
-          <strong>Maya R.</strong>
-          <span>Mindset Coach</span>
-        </div>
-      </div>
-    </div>
-    <div class="test-card">
-      <div class="stars">★★★★★</div>
-      <blockquote>"Finally, a resource that treats discernment as a skill, not a feeling. Practical, sharp, essential."</blockquote>
-      <div class="test-author">
-        <div class="avatar">D</div>
-        <div>
-          <strong>David K.</strong>
-          <span>Executive Coach</span>
-        </div>
-      </div>
-    </div>
-    <div class="test-card">
-      <div class="stars">★★★★★</div>
-      <blockquote>"I've recommended this to every coach in my network. The online discernment chapter alone is worth 10x the price."</blockquote>
-      <div class="test-author">
-        <div class="avatar">S</div>
-        <div>
-          <strong>Sarah L.</strong>
-          <span>Business Mentor</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="section-head">
-    <div class="eyebrow">Start Today</div>
-    <h2>Get Your Copy Now</h2>
-    <p>Instant digital delivery. Begin reading within minutes.</p>
-  </div>
-  <div class="price-box">
-    <div class="old">Regular Price</div>
-    <div class="new">$15</div>
-    <div class="note">One-time payment · Lifetime access · Instant PDF download</div>
-    <a href="https://whop.com/kalanirvata-deduction-intelligence/digital-deduction-bundle-8d/" class="btn-primary" target="_blank" rel="noopener" style="width: 100%; justify-content: center;">
-      Download the Ebook →
-    </a>
-    <div class="guarantee">
-      🛡️ <strong>30-Day Money-Back Guarantee.</strong> If it doesn't transform how you think, get a full refund.
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section>
-  <div class="section-head">
-    <div class="eyebrow">Questions</div>
-    <h2>Frequently Asked</h2>
-  </div>
-  <div class="faq-wrap">
-    <div class="faq-item">
-      <div class="faq-q">What format is the ebook in?</div>
-      <div class="faq-a">The book is delivered as a high-quality PDF that you can read on any device — phone, tablet, laptop, or e-reader.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How quickly will I receive it?</div>
-      <div class="faq-a">Instantly. After checkout on Whop, you'll get immediate access to download the ebook.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Is this only for professional coaches?</div>
-      <div class="faq-a">While written with coaches in mind, anyone who wants to sharpen their thinking, decision-making, and online discernment will benefit greatly.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Is there a refund policy?</div>
-      <div class="faq-a">Yes — we offer a 30-day money-back guarantee. If the book doesn't meet your expectations, reach out for a full refund.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Is checkout secure?</div>
-      <div class="faq-a">Absolutely. All payments are processed through Whop, a trusted platform with bank-level encryption.</div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="logo">
-    <div class="logo-mark">K</div>
-    <div>Kalanirvata <span>Deduction Intelligence</span></div>
-  </div>
-  <p>© 2026 Kalanirvata Deduction Intelligence. All rights reserved.</p>
-  <p style="margin-top: 8px;">
-    <a href="https://whop.com/kalanirvata-deduction-intelligence/digital-deduction-bundle-8d/" target="_blank" rel="noopener">Get the Book</a>
-  </p>
 </footer>
 
 <script>
-  // FAQ accordion
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
-    });
-  });
-
-  // Smooth reveal on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1 });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  document.querySelectorAll('.feature, .audience-card, .test-card, .chapter-list li').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
+  // Mobile hamburger (simple toggle)
+  const hb = document.querySelector('.hamburger');
+  const menu = document.querySelector('.nav-menu');
+  if(hb){
+    hb.addEventListener('click',()=>{
+      const open = menu.style.display === 'flex';
+      if(open){
+        menu.style.display = '';
+      } else {
+        menu.style.cssText = `
+          display:flex;flex-direction:column;position:absolute;
+          top:64px;left:0;right:0;background:#fff;padding:20px 24px;
+          border-bottom:1px solid var(--hairline);gap:16px;
+        `;
+      }
+    });
+  }
 </script>
-
 </body>
 </html>
